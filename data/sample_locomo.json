@@ -1,0 +1,33 @@
+{
+  "sample_id": "conv_01",
+  "speakers": ["Alice", "Bob"],
+  "sessions": [
+    {
+      "session_id": "session_1",
+      "date": "2024-01-10",
+      "turns": [
+        {"speaker": "Alice", "text": "My brother James just started a new job at Google."},
+        {"speaker": "Bob", "text": "That's great! How's he liking it so far?"},
+        {"speaker": "Alice", "text": "He loves it. James lives in Seattle now, close to the office."}
+      ]
+    },
+    {
+      "session_id": "session_2",
+      "date": "2024-01-24",
+      "turns": [
+        {"speaker": "Alice", "text": "I went hiking in the mountains last weekend, it was amazing."},
+        {"speaker": "Bob", "text": "Nice, I love outdoor activities too. Did you see any wildlife?"},
+        {"speaker": "Alice", "text": "Just some deer. My favorite food afterward was Italian pasta, I was starving."}
+      ]
+    },
+    {
+      "session_id": "session_3",
+      "date": "2024-02-15",
+      "turns": [
+        {"speaker": "Alice", "text": "Work has been stressful lately, lots of deadlines."},
+        {"speaker": "Bob", "text": "Sorry to hear that. My sister Maria works at Microsoft and says the same thing."},
+        {"speaker": "Bob", "text": "Maria lives in Redmond, close to campus."}
+      ]
+    }
+  ]
+}
