@@ -36,15 +36,33 @@ Pure vector search treats both cases the same way and often surfaces something m
 flowchart TD
     A[User Query]
 
-    A --> B[Router<br/>Classifies query using cue words + known entity matching]
+    B["Router
+    Classifies query using cue words
+    + known entity matching"]
 
-    B --> C[Vector Store<br/>Qdrant (Embedded)<br/>Semantic similarity search]
-    B --> D[Graph Store<br/>SQLite<br/>Entity relationship lookup]
+    C["Vector Store
+    Qdrant (Embedded)
+    Semantic similarity search"]
 
-    C --> E[Gemini<br/>Synthesizes a grounded answer]
+    D["Graph Store
+    SQLite
+    Entity relationship lookup"]
+
+    E["Gemini
+    Synthesizes a grounded answer
+    from retrieved evidence"]
+
+    F["Flask API + Web UI
+    Shows answer
+    Routing decision
+    Raw evidence"]
+
+    A --> B
+    B --> C
+    B --> D
+    C --> E
     D --> E
-
-    E --> F[Flask API + Web UI<br/>Displays answer, routing decision, and retrieved evidence]
+    E --> F
 ```
 
 ## Skills demonstrated
