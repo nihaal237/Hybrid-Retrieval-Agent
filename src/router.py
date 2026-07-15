@@ -29,14 +29,14 @@ class Router:
             if name.lower() in query_lower
         ]
 
-        if cue_hit and matched_entities:
+        if cue_hit and matched_entities: #query has both a relational keyword and a known name(entity) → go straight to graph.
             return {"path": "graph", "reason": f"cue word '{cue_hit}' + known entity {matched_entities}",
                     "matched_entities": matched_entities}
-        if matched_entities:
+        if matched_entities: #no cue word, but a known name(entity) is mentioned → check both stores just in case.
             return {"path": "hybrid", "reason": f"mentions known entity {matched_entities}, checking both",
                     "matched_entities": matched_entities}
-        if cue_hit:
+        if cue_hit: #a relational keyword is there, but no recognized name → still try the graph.
             return {"path": "graph", "reason": f"cue word '{cue_hit}' suggests a relational fact",
                     "matched_entities": []}
-        return {"path": "vector", "reason": "no relational cues or known entities detected",
+        return {"path": "vector", "reason": "no relational cues or known entities detected",  # neither signal found → default to semantic search.
                 "matched_entities": []}

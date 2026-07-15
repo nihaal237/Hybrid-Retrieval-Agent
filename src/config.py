@@ -12,3 +12,5 @@ EMBEDDING_DIM = 384
 
 GRAPH_DB_PATH = os.path.join(BASE_DIR, "graph_memory.db")
 SPACY_MODEL = "en_core_web_sm"
+
+#file paths for where Qdrant and SQLite store their data on disk, the embedding model name (all-MiniLM-L6-v2), and the Gemini model name.

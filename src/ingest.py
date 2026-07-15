@@ -27,7 +27,8 @@ def ingest_conversation(path: str, vector_store: VectorMemoryStore, graph_store:
             turn_count += 1
 
             # 2. Graph store: only turns that yield extractable facts
-            relations = extract_relations(text, speaker=speaker)
+            relations = extract_relations(text, speaker=speaker) #if relations extracted then save in graph
+
             for rel in relations:
                 graph_store.add_relation(
                     rel["subject"], rel["predicate"], rel["object"],

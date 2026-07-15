@@ -15,16 +15,16 @@ class MemorySystem:
         return ingest_conversation(path, self.vector_store, self.graph_store)
 
     def query(self, user_query: str, top_k: int = 5) -> dict:
-        decision = self.router.classify(user_query)
+        decision = self.router.classify(user_query) #decide where to look
         path = decision["path"]
 
         vector_results = []
         graph_results = []
 
-        if path in ("vector", "hybrid"):
+        if path in ("vector", "hybrid"): #if path in  vectors
             vector_results = self.vector_store.search(user_query, top_k=top_k)
 
-        if path in ("graph", "hybrid"):
+        if path in ("graph", "hybrid"): #if path in graph
             for entity in decision["matched_entities"]:
                 graph_results.extend(self.graph_store.get_relations_for_entity(entity))
             if not decision["matched_entities"]:
