@@ -31,20 +31,21 @@ Pure vector search treats both cases the same way and often surfaces something m
 - **Frontend:** vanilla HTML/JS
 
 ## Architecture
-User query
-│
-▼
-Router — classifies query using cue words + known entity matching
-│
-├──► Vector Store (Qdrant, embedded)  — semantic similarity search
-│
-└──► Graph Store (SQLite)             — entity relationship lookup
-│
-▼
-Gemini — synthesizes a grounded answer from whichever evidence was retrieved
-│
-▼
-Flask API + web UI — shows the answer, routing decision, and raw evidence
+
+```mermaid
+flowchart TD
+    A[User Query]
+
+    A --> B[Router<br/>Classifies query using cue words + known entity matching]
+
+    B --> C[Vector Store<br/>Qdrant (Embedded)<br/>Semantic similarity search]
+    B --> D[Graph Store<br/>SQLite<br/>Entity relationship lookup]
+
+    C --> E[Gemini<br/>Synthesizes a grounded answer]
+    D --> E
+
+    E --> F[Flask API + Web UI<br/>Displays answer, routing decision, and retrieved evidence]
+```
 
 ## Skills demonstrated
 
